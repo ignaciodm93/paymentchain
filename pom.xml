@@ -52,8 +52,8 @@
     <description>POM parent project for all spring boot projects</description>
    
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target> 
+        <maven.compiler.source>23</maven.compiler.source>
+        <maven.compiler.target>23</maven.compiler.target> 
         <spring-boot.version>3.2.2</spring-boot.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding> 
         <postgres.version>42.7.2</postgres.version>    

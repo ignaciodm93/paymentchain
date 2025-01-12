@@ -40,20 +40,13 @@ public class CustomerRestController {
     
     @PutMapping("/{id}")
     public ResponseEntity<?> put(@PathVariable long id, @RequestBody Customer input) {
-         Optional<Customer> optionalcustomer = customerRepository.findById(id);
-        if (optionalcustomer.isPresent()) {
-            Customer newcustomer = optionalcustomer.get();
-            newcustomer.setName(input.getName());
-            newcustomer.setPhone(input.getPhone());
-             Customer save = customerRepository.save(newcustomer);
-          return new ResponseEntity<>(save, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+        Customer save = customerRepository.save(input);
+        return new ResponseEntity<>(save, HttpStatus.OK);
     }
     
     @PostMapping
     public ResponseEntity<?> post(@RequestBody Customer input) {
+    	input.getProducts().forEach(x -> x.setCustomer(input));
         Customer save = customerRepository.save(input);
         return ResponseEntity.ok(save);
     }

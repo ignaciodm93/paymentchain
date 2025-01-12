@@ -109,6 +109,15 @@
         </exclusion>
     </exclusions>
 </dependency>
+
+<!--Para la comunicacion entre distintos proyectos / ms-->
+<!--También puede usarse spring cloud-->
+       
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
+        </dependency> 
+
     </dependencies>     
     
     <build>

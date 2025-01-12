@@ -3,6 +3,7 @@ package com.paymentchain.customer.controller;
 import com.paymentchain.customer.entities.Customer;
 import com.paymentchain.customer.respository.CustomerRepository;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 import java.util.Optional;
@@ -22,6 +23,12 @@ public class CustomerRestController {
     
     @Autowired
     CustomerRepository customerRepository;
+    
+    private final WebClient.Builder webClientBuilder;
+    
+    public CustomerRestController(WebClient.Builder webClientBuilder) {
+    	this.webClientBuilder = webClientBuilder;
+    }
     
     @GetMapping()
     public List<Customer> list() {
